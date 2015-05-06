@@ -1,4 +1,4 @@
 # hyaline
-_hyaline_: /ˈhaɪəlɪn/, "a glassy transparent surface"
+_hyaline_: /ˈhaɪəlɪn/, "having a glassy, translucent appearance"
 
-A pure CSS framework designed for glassy, translucent appearances
+A pure CSS framework
