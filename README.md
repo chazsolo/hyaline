@@ -1,7 +1,7 @@
 # hyaline
 _hyaline_: /ˈhaɪəlɪn/, "having a glassy, translucent appearance"
 
-A pure CSS framework designed for glassy, translucent appearances
+A pure CSS framework
 
 ## Basics
 
