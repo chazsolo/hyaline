@@ -6,18 +6,18 @@
         // grids default to row direction
         flex-direction: row;
 
-        margin-bottom: @base;
+        margin-bottom: 1rem;
 
         // Rules for children
         .cell {
-            padding: @base;
+            padding: @grid-gap;
             background: @demo-bg;
             color: @demo-c;
 
             flex: 1 1 0;
 
             & + .cell {
-                margin-left: @base;
+                margin-left: @grid-gap;
             }
 
             // Cell modifiers
