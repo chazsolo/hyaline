@@ -4,17 +4,28 @@
  * MIT License
  */
 
-@import-once "variables.less";
+@import "reset.less";
+@import "variables.less";
 @import "grid.less";
 @import "type.less";
 
 // helpers
 .hyaline {
+
+    section {
+        padding: 1rem 2rem;
+
+        & + section {
+            margin-top: 1rem;
+        }
+    }
+
+
     .center-text {
         text-align: center;
     }
 
-    .fixed-small {
+    .fixed-width {
         width: 96rem;
         margin: 0 auto;
     }

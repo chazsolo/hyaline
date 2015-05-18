@@ -10,29 +10,42 @@ I decided to roll my own framework.
 
 ## Todo
 
-* Everything!
+Everything!
 
-## Basics
+## General CSS
 
 * Colors
-* Grids
-* Sections (boxes)
-* Helpers
+* Grid System
+* Sections/Segments
+* Collections
 * Tables
-* Fonts
+* Fonts/Typography
+* Iconography
 * Forms
+* Helpers
 
 ## Components
 
-* Media
-* Badges
-* Cards
-* Panels
-* Collections
-* Headers
-* Footers
+* Media Objects
+* Badges/Ribbons
+* Cards/Panels
 * Navigation
-* Pagination
-* Loading
 * Dropdowns
 * Tabs
+* Headers
+* Footers
+* Pagination
+* Loading
+
+## Maybe?
+
+* Pagination
+* Loading
+
+## Contribution Guidelines
+
+None at the moment!
+
+## License
+
+Released under the MIT license.  See LICENSE for more information.
