@@ -4,19 +4,70 @@
  * github.com/chazsolo/hyaline.css
  */
 
-@white: rgba(255, 255, 255, 1);
+/*@white: rgba(255, 255, 255, 1);
 @softWhite: rgba(240, 240, 240, 0.8);
 @grey: rgba(220, 220, 220, 0.8);
 
 @softBlack: rgba(0, 0, 0, 0.15);
 @almostBlack: rgba(51, 51, 51, 0.8);
 
-@basepad: 2rem;
+@basepad: 2rem;*/
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
+body {
+  font-size: 1.4rem;
+}
+
+// start with basic grid
+@c: rgba(212, 212, 212, 0.8);
+
+.hyaline {
+  .grid {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .cell {
+      flex: 1 1 0;
+      padding: 1rem;
+      background: @c;
+
+      border: 1px solid rgba(0, 0, 0, 0.25);
+
+      & + .cell {
+        margin-left: 1rem;
+      }
+    }
+
+    // flex child cells
+    &.flex-cells {
+      .cell {
+        display: flex;
+      }
+    }
+
+    // no gutters
+    &.packed {
+      .cell {
+        margin: 0;
+
+        & + .cell {
+          // clear out border so two aren't next to each other
+          // todo rethink this?
+          border-left: 0;
+        }
+      }
+    }
+  }
+
+  .center-text {
+    text-align: center;
+  }
+}
+
+/*
 body {
 	background: rgba(248,248,248,0.85);
 }
@@ -29,10 +80,10 @@ body {
 		padding: @basepad;
 	}
 
-	/**
+	/!**
 	 * Pane
 	 * Will always stretch to parent - basically, a pane of glass
-	 */
+	 *!/
 	.pane {
 		.pane-set;
 		padding: @basepad;
@@ -48,9 +99,9 @@ body {
 		}
 	}
 
-	/**
+	/!**
 	 * Form Elements
-	 */
+	 *!/
 	button,
 	.button {
 		.pane-set;
@@ -78,14 +129,16 @@ body {
 			text-align: justify;
 		}
 	}
+
+
 }
 
 
-/**
+/!**
  * Mixins
- */
+ *!/
 .pane-set() {
 	outline: 1px solid @softBlack;
 	border: 1px solid @softWhite;
 	border-radius: 0;
-}
+}*/
