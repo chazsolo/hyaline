@@ -5,18 +5,24 @@
     <title>Hyaline - Grid</title>
 
     <link href='http://fonts.googleapis.com/css?family=Raleway:100,400,200,600,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
     <link href="css/hyaline.css" rel="stylesheet" media="all">
     <style type="text/css">
         .example {
             padding: 1rem;
         }
     </style>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 </head>
 <body class="hyaline example">
     <h1>Flexbox Grid System</h1>
 
     <section>
         <h2>Generic fluid grid (with gaps)</h2>
+
+        <p>There is no limit to the number of cells within a grid</p>
 
         <div class="grid center-text">
             <div class="cell">1</div>
@@ -134,7 +140,14 @@
     </section>
 
     <section>
-        <h2>Packed grid (no gaps)</h2>
+        <h2>Packed grid</h2>
+
+<!--<pre><code class="html" data-type="html">&lt;div class="packed grid"&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+  &lt;div class="cell"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>-->
+
+        <p>Packed grids remove space between cells</p>
 
         <div class="packed grid center-text">
             <div class="cell">1/4</div>
@@ -145,7 +158,11 @@
     </section>
 
     <section>
-        <h2>Wrapping grid (no gaps)</h2>
+        <h2>Wrapping grid</h2>
+
+        <p>Wrapping grids allow cells to flow onto another line. Since there is no CSS selector
+        for a wrapped cell, cells in a wrapped grid have their margins removed to avoid odd-looking
+        indents on wrapped lines.</p>
 
         <div class="wrap grid center-text">
             <div class="cell">1/12</div>
@@ -167,6 +184,8 @@
         <div class="fixed-width">
             <h2>Fixed width</h2>
 
+            <h3>960px</h3>
+
             <div class="grid center-text">
                 <div class="cell">1</div>
             </div>
@@ -181,31 +200,94 @@
                 <div class="cell">1/3</div>
                 <div class="cell">1/3</div>
             </div>
-
-            <div class="grid center-text">
-                <div class="cell">1/4</div>
-                <div class="cell">1/4</div>
-                <div class="cell">1/4</div>
-                <div class="cell">1/4</div>
-            </div>
-
-            <div class="grid packed center-text">
-                <div class="cell">1/5</div>
-                <div class="cell">1/5</div>
-                <div class="cell">1/5</div>
-                <div class="cell">1/5</div>
-                <div class="cell">1/5</div>
-            </div>
-
-            <div class="grid center-text">
-                <div class="cell">1/6</div>
-                <div class="cell">1/6</div>
-                <div class="cell">1/6</div>
-                <div class="cell">1/6</div>
-                <div class="cell">1/6</div>
-                <div class="cell">1/6</div>
-            </div>
         </div>
     </section>
+
+    <section>
+        <h2>Column Basis</h2>
+
+        <p>Grid cells can be given an initial "main size" before free space is distributed according to
+        other flex factors.  If flex items' basis' exceeds free space (e.g. you define 14 columns in the
+        12 column space), then flex items will still continue to shrink.</p>
+
+        <div class="grid center-text">
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell span-1">1</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell span-1">1</div>
+            <div class="cell span-2">2</div>
+            <div class="cell span-3">3</div>
+            <div class="cell span-4">4</div>
+            <div class="cell span-5">5</div>
+            <div class="cell span-11">11</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell">auto</div>
+            <div class="cell span-2">2</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell span-3">3</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell">auto</div>
+            <div class="cell span-4">4</div>
+        </div>
+
+        <div class="grid center-text">
+            <div class="cell span-5">5</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <h3>Packed Grid Column Basis</h3>
+
+        <div class="grid packed center-text">
+            <div class="cell">auto</div>
+            <div class="cell span-6">6</div>
+        </div>
+
+        <div class="grid packed center-text">
+            <div class="cell span-7">7</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid packed center-text">
+            <div class="cell">auto</div>
+            <div class="cell span-8">8</div>
+        </div>
+
+        <h3>Wrapped Grid Column Basis</h3>
+
+        <div class="grid wrap center-text">
+            <div class="cell span-9">9</div>
+            <div class="cell">auto</div>
+        </div>
+
+        <div class="grid wrap center-text">
+            <div class="cell">auto</div>
+            <div class="cell span-10">10</div>
+        </div>
+
+        <div class="grid wrap center-text">
+            <div class="cell span-11">11</div>
+            <div class="cell">auto</div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hljs.initHighlightingOnLoad();
+        });
+    </script>
 </body>
 </html>

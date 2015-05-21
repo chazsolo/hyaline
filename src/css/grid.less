@@ -1,3 +1,5 @@
+@import "variables.less";
+
 .hyaline {
     .grid {
         // all grids are flex-boxes by default
@@ -6,37 +8,24 @@
         // grids default to row direction
         flex-direction: row;
 
-        margin-bottom: 1rem;
-
         // Rules for children
         .cell {
             padding: @grid-gap;
             background: @demo-bg;
             color: @demo-c;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
 
+            margin: 0 (@grid-gap / 2) @grid-gap (@grid-gap / 2);
+
+            // default flex values
             flex: 1 1 0;
 
-            & + .cell {
-                margin-left: @grid-gap;
-            }
+            // this will generate classes of .span-# given the number of grid columns
+            .generate-columns(@grid-columns);
 
-            // Cell modifiers
-            &.set {
-                flex: 0 0 auto !important;
-            }
-
-            // todo consider revise or taking this out
-            &.one-half { width: percentage(1/2); }
-            &.one-third { width: percentage(1/3); }
-            &.one-fourth { width: percentage(1/4); }
-            &.one-fifth { width: percentage(1/5); }
-            &.one-sixth { width: percentage(1/6); }
-            &.one-seventh { width: percentage(1/7); }
-            &.one-eigth { width: percentage(1/8); }
-            &.one-ninth { width: percentage(1/9); }
-            &.one-tenth { width: percentage(1/10); }
-            &.one-eleventh { width: percentage(1/11); }
-            &.one-twelfth { width: percentage(1/12); }
+            // remove some margins
+            &:first-child { margin-left: 0; }
+            &:last-child { margin-right: 0; }
         }
 
         // Grid Modifiers
@@ -45,21 +34,38 @@
 
         &.wrap {
             flex-wrap: wrap;
-
-            // since there is no selector for wrapped flex items, it
-            // might be best to remove any margin on possibly wrapped items
-            // and let the user define those layouts within the wrapped
-            // items instead
             .cell {
-                margin: 0;
+                margin-left: 0;
+                margin-right: 0;
             }
         }
 
-        // clear gutters on packed items
+        // clear gutters on packed grid cells
         &.packed {
             .cell {
-                margin: 0;
+                margin-right: 0;
+                margin-left: 0;
             }
         }
+
+        &.space-around {
+            justify-content: space-around;
+        }
+        &.space-between {
+            justify-content: space-between;
+        }
     }
+}
+
+//
+// functions
+//
+
+// generate classes of format /.span-#/ depending on the number of grid columns
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+    &.span-@{i} {
+        flex: 0 1 (@i * 100% / @n);
+    }
+
+    .generate-columns(@n, (@i + 1));
 }

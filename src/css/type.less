@@ -1,7 +1,7 @@
 .hyaline {
     h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
-        margin: 1.5rem 0 2rem;
+        margin: 3.5rem 0 2rem;
         color: @demo-c;
     }
     h1 { font-size: 3rem; }
@@ -10,4 +10,47 @@
     h4 { font-size: 1.8rem; }
     h5 { font-size: 1.6rem; }
     h6 { font-size: 1.4rem; }
+
+    code, pre {
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    pre {
+        width: 50%;
+
+        code {
+            line-height: 1.6rem;
+            font-size: 1.2rem;
+        }
+
+        code[data-type]:after {
+            content: attr(data-type);
+            display: block;
+            text-align: right;
+            font-size: smaller;
+            padding-top: 5px;
+        }
+    }
+
+    code, samp, kbd {
+        font-family: "Courier New", Courier, monospace, sans-serif;
+        text-align: left;
+        color: #555;
+    }
+
+    p {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        margin: 2rem 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
