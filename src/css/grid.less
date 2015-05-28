@@ -8,36 +8,35 @@
         // grids default to row direction
         flex-direction: row;
 
+        margin: @grid-margin;
+
         // Rules for children
         .cell {
-            padding: @grid-gap;
+            padding: @cell-pad;
             background: @demo-bg;
             color: @demo-c;
             box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
 
-            margin: 0 (@grid-gap / 2) @grid-gap (@grid-gap / 2);
+            margin: 0 (@cell-hgap / 2);
 
             // default flex values
             flex: 1 1 0;
 
             // this will generate classes of .span-# given the number of grid columns
             .generate-columns(@grid-columns);
-
-            // remove some margins
-            &:first-child { margin-left: 0; }
-            &:last-child { margin-right: 0; }
         }
 
         // Grid Modifiers
         &.inline { display: inline-flex; }
         &.reverse { flex-direction: row-reverse; }
 
-        &.wrap {
+        &.wrapping {
             flex-wrap: wrap;
-            .cell {
-                margin-left: 0;
-                margin-right: 0;
-            }
+        }
+
+        // nested grids don't have margins
+        .grid {
+            margin: 0;
         }
 
         // clear gutters on packed grid cells
@@ -45,6 +44,13 @@
             .cell {
                 margin-right: 0;
                 margin-left: 0;
+            }
+        }
+
+        // emphasize gutters on relaxed grid cells
+        &.relaxed {
+            .cell {
+                margin: (@cell-vgap / 2) (@cell-hgap / 2);
             }
         }
 

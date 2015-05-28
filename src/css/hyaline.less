@@ -11,17 +11,19 @@
 
 // helpers
 .hyaline {
-    section {
-        padding: 1rem;
+    #examples {
+        max-width: 960px;
+        margin: 0 auto;
 
-        & + section {
-            margin-top: 1rem;
+        .cell {
+            text-align: center;
         }
     }
 
-
-    .center-text {
-        text-align: center;
+    section {
+        & + section {
+            margin-top: 1rem;
+        }
     }
 
     .fixed-width {
